@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloggie | Posts</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/toast.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Material-symbols-outlined -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <header>
+        <main>
+            <div class="nav">
+                <a href="/">
+                    <div class="brand" style="border-bottom: unset; padding-bottom: unset;">
+                        <div class="logo">
+                            <span class="material-symbols-outlined">
+                                ballot
+                            </span>
+                        </div>
+                        <h2>Bloggie</h2>
+                    </div>
+                </a>
+
+                <div class="right-nav">
+                    <div class="theme">
+                        <span class="material-symbols-outlined theme-icon">
+                            dark_mode
+                        </span>
+                    </div>
+                    <div><a href="#"><i class="fa-brands fa-github-alt"></i>&nbsp; Github</a></div>
+                    <button class="logout-btn">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </button>
+                </div>
+                <div class="menu-btn">
+                    <span class="material-symbols-outlined menu-icon">
+                        menu
+                    </span>
+                </div>
+            </div>
+        </main>
+    </header>
+
+    <main>
+
+
+        <!-- Greeting -->
+        <section class="greeting">
+            <h1>Hello, <span class="highlight" id="userName">Jacksun</span>👋</h1>
+            <p>Continue reading our latest article...</p>
+        </section>
+
+        <!-- Search -->
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search posts..." autocomplete="off" autofocus>
+            <div class="search-icon">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div>
+        </div>
+
+
+        <section>
+            <p class="msg">Posts not found!</p>
+            <ul class="posts"></ul>
+            <button class="more-btn">Load More <i class="fa-solid fa-arrow-right"></i></button>
+        </section>
+
+        <section class="modal-container">
+            <div class="overlay"></div>
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Preview</h2>
+
+                    <div class="close-modal">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-img">
+                        <img src="https://dummyimage.com/800x430/5e917f/morbi-dictum.png&text=jsonplaceholder.org"
+                            alt="">
+                    </div>
+                    <div class="body">
+                        <h3 class="post-title">Post title</h3>
+                        <p class="post-date">date</p>
+                        <p class="post-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti
+                            expedita sit obcaecati asperiores, id beatae rerum harum. Qui similique in minus impedit
+                            facilis eos. Soluta minus harum optio officiis nihil quae voluptates fugit fuga, dolorem
+                            molestias culpa repudiandae praesentium? Delectus rem corrupti saepe facilis voluptatum,
+                            sapiente fugiat quo similique vel blanditiis eum optio quae ab dolorum velit provident,
+                            doloremque veritatis nisi, voluptatibus eveniet. Porro, quaerat. Similique dolorum
+                            voluptates ab quia totam adipisci culpa ut consectetur dolorem atque recusandae praesentium
+                            in, minima blanditiis, nemo odio, ad veritatis laborum. Eius placeat sit esse temporibus
+                            vero cum, aperiam molestias, exercitationem ducimus nemo saepe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Javascript -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userNameElement = document.querySelector("#userName");
+            const storedUsername = localStorage.getItem("username");
+
+            if (storedUsername) {
+                userNameElement.textContent = storedUsername;
+            } else {
+                userNameElement.textContent = "Guest";
+            }
+        });
+
+    </script>
+</body>
+
+</html>
